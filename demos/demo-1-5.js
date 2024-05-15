@@ -11,12 +11,20 @@ let menu = [
 // find a single element matching a condition
 let searchId = 3;
 let matching = null;
-let numItems = menu.length;
 
-for (let i = 0; i < numItems; i++) {
-  if (menu[i].id == searchId) {
-    matching = menu[i];
-    break; // you've found it! stop looking!
+// let numItems = menu.length;
+
+// for (let i = 0; i < numItems; i++) {
+//  if (menu[i].id == searchId) {
+//  matching = menu[i];
+// break; // you've found it! stop looking!
+// }
+// }
+
+for (let menuObject of menu) {
+  if (menuObject.id == searchId) {
+    matching = menuObject;
+    break;
   }
 }
 
@@ -24,4 +32,14 @@ if (matching != null) {
   console.log(matching.item + " costs $" + matching.price);
 } else {
   console.log("Item " + searchId + " not found!");
+}
+
+function getMenuObjectById(menuObjects, id) {
+  for (let menuObject of menuObjects) {
+    if (menuObject.id == id) {
+      return menuObject;
+    }
+  }
+
+  return null;
 }
